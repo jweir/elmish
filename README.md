@@ -40,7 +40,7 @@ Elmish was born.
 
 ```ruby
 
-module Workflow
+module Counter
   extend Elmish
 
   Actions %w|
@@ -73,18 +73,18 @@ module Workflow
   end
 end
 
-_, state = Workflow.init
-#=>  [Workflow::Noop, 0]
+_, state = Counter.init
+#=>  [Counter::Noop, 0]
 
-_, state = Workflow.update Workflow::Inc, state
-#=>  [Workflow::Noop, 1]
+_, state = Counter.update Workflow::Inc, state
+#=>  [Counter::Noop, 1]
 
 # Look a Union type with a value of 3
-_, state = Workflow.update (Workflow::IncN 3), state
-#=>  [Workflow::Noop, 4]
+_, state = Counter.update (Workflow::IncN 3), state
+#=>  [Counter::Noop, 4]
 
 # runtime type checking is better than no type checking? Maybe? 
-_, state = Workflow.update (Workflow::IncN 'string?'), state
+_, state = Counter.update (Workflow::IncN 'string?'), state
 #=> Elmish::Union::TypeMismatch: [String, Fixnum]
 
 ```
