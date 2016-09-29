@@ -26,7 +26,7 @@ module Counter
     when DecN then
       [Noop, state - msg.value]
     else
-      puts 'oh well'
+      raise 'hell'
     end
   end
 end
